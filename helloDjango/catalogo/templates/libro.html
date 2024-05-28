@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Titulo: {{ libro.titulo }}</h1>
+<p><strong>Autor: </strong><a href="">{{ libro.autor }}</a></p>
+<p><strong>Resumen: </strong><a href="">{{ libro.resumen }}</a></p>
+<p><strong>ISBN: </strong><a href="">{{ libro.isbn }}</a></p>
+<p><strong>Idioma: </strong><a href="">{{ libro.idioma }}</a></p>
+<p><strong>Genero: </strong><a href="">{{ libro.muestra_genero }}</a></p>
+<img src="{{ libro.imagen.url }}" alt="">
+{% endblock %}

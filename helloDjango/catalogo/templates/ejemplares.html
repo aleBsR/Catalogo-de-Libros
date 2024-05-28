@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Lista de Ejemplares</h1>
+<p><a href="{% url 'ejemplar_new' %}" class="btn btn-success">Nuevo</a></p>
+{% if ejemplares %}
+<ul>
+    {% for ejemplar in ejemplares %}
+    <li>
+        <p><a href="{% url 'ejemplar' ejemplar.id %}">{{ ejemplar.id }}</a></p>
+    </li>
+</ul>

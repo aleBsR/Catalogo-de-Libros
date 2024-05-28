@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Autor</h1>
+<p><strong>Nombre: </strong><a href="">{{ autor.nombre }}</a></p>
+<p><strong>apellido: </strong><a href="">{{ autor.apellido }}</a></p>
+<p><strong>Fecha de nacimiento: </strong><a href="">{{ autor.fechaNac }}</a></p>
+<p><strong>Fecha de deceso: </strong><a href="">{{ autor.fechaDeceso }}</a></p>
+<img src="{{ autor.imagen.url }}" alt="">
+{% endblock %}

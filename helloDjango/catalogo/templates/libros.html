@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Listado de Libros</h1>
+<p><a href="{% url 'libro_new' %}" class="btn btn-secondary">Nuevo</a></p>
+{% if libros %}
+<ul>
+    {% for libro in libros %}
+    <li>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="card">
+                <img src="{{ libro.imagen.url }}" alt="libro.nombre" class="card-img-top">
+                <div>
+                    <a href="{% url 'libro' libro.id %}">{{ libro.titulo }}</a>
+                    ({{ libro.autor }})
+                </div>
+                <p><a href="{% url 'libro_update' libro.id %}" class="btn btn-primary">Actualizar</a></p>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Oops! no tenemos libros en catalogo.</p>
+{% endif %}
+{% endblock %}
