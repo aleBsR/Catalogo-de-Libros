@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Nuevo Idioma</h2>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <table>{{ formulario.as_p }}</table>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

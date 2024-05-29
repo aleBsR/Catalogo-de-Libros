@@ -2,7 +2,7 @@ from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404
 from catalogo.models import Idioma, Genero, Libro, Ejemplar, Autor
 from django.views import generic
-from catalogo.forms import GeneroForm, AutorForm, LibroForm
+from catalogo.forms import GeneroForm, AutorForm, LibroForm, IdiomaForm
 
 # Create your views here.
 def catalogo(request):
@@ -135,6 +135,34 @@ def genero_update(request, pk):
         
     return render(request, 'genero_new.html', {'formulario': formulario})
 
+def idioma_new(request):
+    if request.method == "POST":
+        formulario = IdiomaForm(request.POST)
+        if formulario.is_valid():
+            idioma = formulario.save(commit=False)
+            idioma.nombre = formulario.cleaned_data['nombre']
+            idioma.save()
+            return redirect('idiomas')
+    else:
+        formulario = IdiomaForm()
+        
+    return render(request, 'idioma_new.html', {'formulario': formulario})
+            
+def idioma_update(request, pk):
+    idioma = get_object_or_404(Idioma, pk=pk)
+    
+    if request.method == "POST":
+        formulario = IdiomaForm(request.POST, instance=idioma)
+        if formulario.is_valid():
+            idioma = formulario.save(commit=False)
+            idioma.nombre = formulario.cleaned_data['nombre']
+            idioma.save()
+            return redirect('idiomas')
+    else:
+        formulario = IdiomaForm(instance=idioma)
+        
+    return render(request, 'idioma_new.html', {'formulario': formulario})
+        
 def autor_new(request):
     if request.method == "POST":
         formulario = AutorForm(request.POST)

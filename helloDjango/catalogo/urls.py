@@ -16,4 +16,6 @@ urlpatterns = [
     path('genero/new/', views.genero_new, name='genero_new'),
     path('genero/update/<pk>', views.genero_update, name='genero_update'),
     path('idiomas/', views.IdiomaListView.as_view(), name='idiomas'),
+    path('idioma/new/', views.idioma_new, name='idioma_new'),
+    path('idioma/update/<pk>', views.idioma_update, name='idioma_update'),
 ]

@@ -1,11 +1,17 @@
 from django import forms
-from catalogo.models import Genero, Autor, Libro, Ejemplar
+from catalogo.models import Genero, Autor, Libro, Ejemplar, Idioma
 from django.forms.widgets import NumberInput
 
 class GeneroForm(forms.ModelForm):
     
     class Meta:
         model = Genero
+        fields = ('nombre',)
+        
+class IdiomaForm(forms.ModelForm):
+    
+    class Meta:
+        model = Idioma
         fields = ('nombre',)
         
 class AutorForm(forms.ModelForm):
