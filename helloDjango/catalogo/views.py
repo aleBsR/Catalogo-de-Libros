@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render, redirect, get_object_or_404
 from catalogo.models import Idioma, Genero, Libro, Ejemplar, Autor
 from django.views import generic
@@ -93,6 +94,17 @@ class GeneroListView(generic.ListView):
         generos = Genero.objects.all()
         context = super(GeneroListView, self).get_context_data(**kwargs)
         context['generos'] = generos
+        return context
+    
+class IdiomaListView(generic.ListView):
+    model = Idioma
+    
+    template_name = 'idiomas.html'
+    
+    def get_context_data(self, **kwargs):
+        idiomas = Idioma.objects.all()
+        context = super(IdiomaListView, self).get_context_data(**kwargs)
+        context['idiomas'] = idiomas
         return context
     
 def genero_new(request):

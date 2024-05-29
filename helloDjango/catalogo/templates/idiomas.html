@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Idiomas</h1>
+{% if idiomas %}
+<ul>
+    {% for idioma in idiomas %}
+    <li>
+        <a href="">{{ idioma.nombre }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Oops! No tenemos idiomas de libros en el catalogo.</p>
+{% endif %}
+{% endblock %}
